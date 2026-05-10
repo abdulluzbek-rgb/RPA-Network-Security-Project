@@ -22,35 +22,29 @@ Attacker-PC: Represents the source of malicious traffic.
 The Automation Script
 Due to environment-specific limitations in Packet Tracer's Python engine (Skulpt), this script focuses on the Operational Logic of the RPA bot:
 
-Python
+Python:
 
 
 
 from time import sleep
-
 def rpa_security_bot():
     print("--- [RPA NETWORK DEFENDER ACTIVE] ---")
     print("Step 1: Monitoring incoming traffic logs...")
     sleep(2)
-
     # Detection of the unauthorized host
     attacker_ip = "192.168.2.50"
     print(f"[ALERT] Unauthorized access detected from: {attacker_ip}")
-
     print("Step 2: Connecting to Sec-Router for mitigation...")
     sleep(1.5)
-
     # Automated Command Generation
     print("[RPA ACTION] Sending Security Configuration:")
     print(f">> access-list 100 deny ip host {attacker_ip} any")
     print(">> interface g0/1")
     print(">> ip access-group 100 in")
-    
     sleep(1)
     print("\n--- [RESULT] ---")
     print(f"SUCCESS: Traffic from {attacker_ip} is now filtered.")
     print("Security Status: SECURE - Attacker Blocked.")
-
 if __name__ == "__main__":
     rpa_security_bot()
 
